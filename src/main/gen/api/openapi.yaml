@@ -1,0 +1,37 @@
+openapi: 3.0.3
+info:
+  title: Producer API
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /json:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_json_get_200_response'
+          description: Returns a message in JSON format
+      x-accepts: application/json
+  /xml:
+    get:
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/_json_get_200_response'
+          description: Returns a message in XML format
+      x-accepts: application/xml
+components:
+  schemas:
+    _json_get_200_response:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      type: object
+
